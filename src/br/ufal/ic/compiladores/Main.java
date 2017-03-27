@@ -12,12 +12,12 @@ public class Main {
     private static Token token;
     private static InputStream helloworld, fibonacci, shellsort;
 
-    public static void main (String[] args) throws IOException{
+    public static void main (String[] args) throws IOException {
         lex = new Lexema();
 
         helloworld = new FileInputStream("/home/rivo/RD_analisador_lexico/programas/helloworld.rd");
         fibonacci = new FileInputStream("/home/rivo/RD_analisador_lexico/programas/fibonacci.rd");
-        //shellsort = new FileInputStream("/home/rivo/RD_analisador_lexico/programas/shellsort.rd");
+        shellsort = new FileInputStream("/home/rivo/RD_analisador_lexico/programas/shellsort.rd");
 
         System.out.println("Tokens do programa helloworld.rd\n");
         lex.setCodFonte(helloworld);
@@ -33,6 +33,15 @@ public class Main {
         while (token != null) {
             System.out.println(token.toString() + "\n");
             token = lex.nextToken();
+        }
+
+        System.out.println("Tokens do programa shellsort.rd\n");
+        lex.setCodFonte(shellsort);
+        token = lex.nextToken();
+        while (token != null) {
+            System.out.println(token.toString() + "\n");
+            token = lex.nextToken();
+
         }
     }
 }
